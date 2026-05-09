@@ -35,6 +35,13 @@ function jsonResponse(body: unknown, init?: ResponseInit): Response {
   });
 }
 
+function textResponse(body: string, init?: ResponseInit): Response {
+  return new Response(body, {
+    status: init?.status ?? 200,
+    headers: { 'content-type': 'text/plain', ...(init?.headers ?? {}) },
+  });
+}
+
 function passThroughOrUpstream(handler: (url: string, init?: FetchInit) => Response | Promise<Response>) {
   return vi.fn((input: FetchInput, init?: FetchInit) => {
     const url = String(input);
@@ -243,19 +250,33 @@ describe('POST /api/provider/models', () => {
   });
 
   it('maps upstream listing failures to categorized results and redacts keys', async () => {
-    for (const [status, kind] of [
-      [401, 'auth_failed'],
-      [429, 'rate_limited'],
-      [503, 'upstream_unavailable'],
+    for (const [status, kind, response] of [
+      [
+        401,
+        'auth_failed',
+        (apiKey: string) => jsonResponse(
+          { error: { message: `bad key ${apiKey}` } },
+          { status: 401 },
+        ),
+      ],
+      [
+        429,
+        'rate_limited',
+        (apiKey: string) => textResponse(`rate limit for ${apiKey}`, { status: 429 }),
+      ],
+      [
+        503,
+        'upstream_unavailable',
+        (apiKey: string) => textResponse(
+          `<html>temporary outage for ${apiKey}</html>`,
+          { status: 503, headers: { 'content-type': 'text/html' } },
+        ),
+      ],
     ] as const) {
+      const apiKey = `sk-secret-models-${status}`;
       vi.stubGlobal(
         'fetch',
-        passThroughOrUpstream(() =>
-          jsonResponse(
-            { error: { message: `bad key sk-secret-models-${status}` } },
-            { status },
-          ),
-        ),
+        passThroughOrUpstream(() => response(apiKey)),
       );
 
       const res = await realFetch(`${baseUrl}/api/provider/models`, {
@@ -264,12 +285,12 @@ describe('POST /api/provider/models', () => {
         body: JSON.stringify({
           protocol: 'openai',
           baseUrl: 'https://api.openai.com/v1',
-          apiKey: `sk-secret-models-${status}`,
+          apiKey,
         }),
       });
       const body = (await res.json()) as Record<string, unknown>;
       expect(body).toMatchObject({ ok: false, kind, status });
-      expect(String(body.detail)).not.toContain(`sk-secret-models-${status}`);
+      expect(String(body.detail)).not.toContain(apiKey);
       vi.unstubAllGlobals();
     }
   });

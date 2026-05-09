@@ -238,28 +238,33 @@ export async function listProviderModels(
     const latencyMs = Date.now() - start;
     const rawText = await response.text();
     let data: unknown = {};
+    let parseError: string | undefined;
     try {
       data = rawText ? JSON.parse(rawText) : {};
     } catch (err) {
-      return {
-        ok: false,
-        kind: 'unknown',
-        latencyMs,
-        status: response.status,
-        detail: redactSecrets(
-          err instanceof Error ? err.message : String(err),
-          [input.apiKey],
-        ),
-      };
+      parseError = err instanceof Error ? err.message : String(err);
     }
 
     if (!response.ok) {
+      const detail = parseError
+        ? rawText.trim().slice(0, 240) || parseError
+        : extractProviderErrorDetail(data, rawText);
       return {
         ok: false,
         kind: statusToKind(response.status),
         latencyMs,
         status: response.status,
-        detail: redactSecrets(extractProviderErrorDetail(data, rawText), [input.apiKey]),
+        detail: redactSecrets(detail, [input.apiKey]),
+      };
+    }
+
+    if (parseError) {
+      return {
+        ok: false,
+        kind: 'unknown',
+        latencyMs,
+        status: response.status,
+        detail: redactSecrets(parseError, [input.apiKey]),
       };
     }
 
