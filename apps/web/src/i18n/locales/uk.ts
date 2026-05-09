@@ -1,6 +1,8 @@
 import type { Dict } from '../types';
+import { en } from './en';
 
 export const uk: Dict = {
+  ...en,
   'common.cancel': 'Скасувати',
   'common.save': 'Зберегти',
   'common.close': 'Закрити',
@@ -95,13 +97,6 @@ export const uk: Dict = {
   'settings.show': 'Показати',
   'settings.hide': 'Приховати',
   'settings.model': 'Модель',
-  'settings.fetchModels': 'Fetch models',
-  'settings.fetchModelsTitle': 'Fetch available models from this provider',
-  'settings.fetchModelsRunning': 'Fetching models…',
-  'settings.fetchModelsSuccess': 'Fetched {count} models.',
-  'settings.fetchModelsEmpty': 'No compatible text models were returned.',
-  'settings.fetchModelsUnsupported': 'Model discovery is not available for this protocol.',
-  'settings.fetchModelsFailed': 'Could not fetch models: {detail}',
   'settings.suggestedModelsHint':
     'Це рекомендовані моделі для цього протоколу. Ваш провайдер може підтримувати інші моделі.',
   'settings.baseUrl': 'Базовий URL',
@@ -109,8 +104,6 @@ export const uk: Dict = {
   'settings.azureDeploymentModel': 'Назва розгортання',
   'settings.azureDeploymentModelHint':
     'Для Azure OpenAI це поле використовується як назва розгортання в /openai/deployments/<model>. Введіть назву розгортання, створену в Azure.',
-  'settings.azureModelFetchHint':
-    'For Azure OpenAI, enter the deployment name you created in Azure. Automatic deployment discovery is not available from this BYOK endpoint.',
   'settings.apiVersion': 'Версія API',
   'settings.maxTokens': 'Макс. токенів (необов\'язково)',
   'settings.maxTokensHint':

@@ -96,13 +96,6 @@ export const hu: Dict = {
   'settings.show': 'Megjelenítés',
   'settings.hide': 'Elrejtés',
   'settings.model': 'Modell',
-  'settings.fetchModels': 'Fetch models',
-  'settings.fetchModelsTitle': 'Fetch available models from this provider',
-  'settings.fetchModelsRunning': 'Fetching models…',
-  'settings.fetchModelsSuccess': 'Fetched {count} models.',
-  'settings.fetchModelsEmpty': 'No compatible text models were returned.',
-  'settings.fetchModelsUnsupported': 'Model discovery is not available for this protocol.',
-  'settings.fetchModelsFailed': 'Could not fetch models: {detail}',
   'settings.suggestedModelsHint':
     'Ezek a protokollhoz javasolt modellek. A szolgáltatód más modelleket is támogathat.',
   'settings.baseUrl': 'Base URL',
@@ -110,8 +103,6 @@ export const hu: Dict = {
   'settings.azureDeploymentModel': 'Deployment név',
   'settings.azureDeploymentModelHint':
     'Azure OpenAI esetén ez a mező a /openai/deployments/<model> deployment neveként szerepel. Add meg az Azure-ban létrehozott deployment nevét.',
-  'settings.azureModelFetchHint':
-    'For Azure OpenAI, enter the deployment name you created in Azure. Automatic deployment discovery is not available from this BYOK endpoint.',
   'settings.apiVersion': 'API-verzió',
   'settings.maxTokens': 'Max tokenek (opcionális)',
   'settings.maxTokensHint':

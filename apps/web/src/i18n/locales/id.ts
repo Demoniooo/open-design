@@ -1,6 +1,8 @@
 import type { Dict } from '../types';
+import { en } from './en';
 
 export const id: Dict = {
+  ...en,
   'common.cancel': 'Batal',
   'common.save': 'Simpan',
   'common.close': 'Tutup',
@@ -93,13 +95,6 @@ export const id: Dict = {
   'settings.show': 'Tampilkan',
   'settings.hide': 'Sembunyikan',
   'settings.model': 'Model',
-  'settings.fetchModels': 'Fetch models',
-  'settings.fetchModelsTitle': 'Fetch available models from this provider',
-  'settings.fetchModelsRunning': 'Fetching models…',
-  'settings.fetchModelsSuccess': 'Fetched {count} models.',
-  'settings.fetchModelsEmpty': 'No compatible text models were returned.',
-  'settings.fetchModelsUnsupported': 'Model discovery is not available for this protocol.',
-  'settings.fetchModelsFailed': 'Could not fetch models: {detail}',
   'settings.suggestedModelsHint': 'Ini model yang disarankan untuk protokol ini. Provider kamu mungkin mendukung model lain.',
   'settings.baseUrl': 'Base URL',
   'settings.baseUrlInvalid':
@@ -107,8 +102,6 @@ export const id: Dict = {
   'settings.azureDeploymentModel': 'Nama deployment',
   'settings.azureDeploymentModelHint':
     'Untuk Azure OpenAI, field ini digunakan sebagai nama deployment di /openai/deployments/<model>. Masukkan nama deployment yang kamu buat di Azure.',
-  'settings.azureModelFetchHint':
-    'For Azure OpenAI, enter the deployment name you created in Azure. Automatic deployment discovery is not available from this BYOK endpoint.',
   'settings.apiVersion': 'Versi API',
   'settings.maxTokens': 'Token maks (opsional)',
   'settings.maxTokensHint':

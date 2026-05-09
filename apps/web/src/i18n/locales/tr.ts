@@ -96,13 +96,6 @@ export const tr: Dict = {
   'settings.show': 'Göster',
   'settings.hide': 'Gizle',
   'settings.model': 'Model',
-  'settings.fetchModels': 'Fetch models',
-  'settings.fetchModelsTitle': 'Fetch available models from this provider',
-  'settings.fetchModelsRunning': 'Fetching models…',
-  'settings.fetchModelsSuccess': 'Fetched {count} models.',
-  'settings.fetchModelsEmpty': 'No compatible text models were returned.',
-  'settings.fetchModelsUnsupported': 'Model discovery is not available for this protocol.',
-  'settings.fetchModelsFailed': 'Could not fetch models: {detail}',
   'settings.suggestedModelsHint':
     'Bunlar bu protokol için önerilen modellerdir. Sağlayıcınız farklı modelleri destekleyebilir.',
   'settings.baseUrl': 'Temel URL',
@@ -110,8 +103,6 @@ export const tr: Dict = {
   'settings.azureDeploymentModel': 'Dağıtım adı',
   'settings.azureDeploymentModelHint':
     'Azure OpenAI icin bu alan /openai/deployments/<model> icindeki dagitim adi olarak kullanilir. Azureda olusturdugunuz dagitim adini girin.',
-  'settings.azureModelFetchHint':
-    'For Azure OpenAI, enter the deployment name you created in Azure. Automatic deployment discovery is not available from this BYOK endpoint.',
   'settings.apiVersion': 'API sürümü',
   'settings.maxTokens': 'Maks. token (isteğe bağlı)',
   'settings.maxTokensHint':

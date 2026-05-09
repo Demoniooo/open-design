@@ -96,13 +96,6 @@ export const ko: Dict = {
   'settings.show': '표시',
   'settings.hide': '숨기기',
   'settings.model': '모델',
-  'settings.fetchModels': 'Fetch models',
-  'settings.fetchModelsTitle': 'Fetch available models from this provider',
-  'settings.fetchModelsRunning': 'Fetching models…',
-  'settings.fetchModelsSuccess': 'Fetched {count} models.',
-  'settings.fetchModelsEmpty': 'No compatible text models were returned.',
-  'settings.fetchModelsUnsupported': 'Model discovery is not available for this protocol.',
-  'settings.fetchModelsFailed': 'Could not fetch models: {detail}',
   'settings.suggestedModelsHint':
     '이 프로토콜에 대한 추천 모델입니다. 사용 중인 제공자는 다른 모델을 지원할 수 있습니다.',
   'settings.maxTokens': '최대 토큰 수 (선택 사항)',
@@ -113,8 +106,6 @@ export const ko: Dict = {
   'settings.azureDeploymentModel': '배포 이름',
   'settings.azureDeploymentModelHint':
     'Azure OpenAI에서는 이 필드가 /openai/deployments/<model>의 배포 이름으로 사용됩니다. Azure에서 만든 배포 이름을 입력하세요.',
-  'settings.azureModelFetchHint':
-    'For Azure OpenAI, enter the deployment name you created in Azure. Automatic deployment discovery is not available from this BYOK endpoint.',
   'settings.apiVersion': 'API 버전',
   'settings.apiHint': '요청은 로컬 daemon 프록시를 통해 설정한 Base URL로 전송됩니다. 키는 이 브라우저에만 저장되며 제공자 요청과 함께 전송됩니다.',
   'settings.skipForNow': '지금은 건너뛰기',
