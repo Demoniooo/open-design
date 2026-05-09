@@ -93,6 +93,13 @@ export const zhTW: Dict = {
   'settings.show': '顯示',
   'settings.hide': '隱藏',
   'settings.model': '模型',
+  'settings.fetchModels': 'Fetch models',
+  'settings.fetchModelsTitle': 'Fetch available models from this provider',
+  'settings.fetchModelsRunning': 'Fetching models…',
+  'settings.fetchModelsSuccess': 'Fetched {count} models.',
+  'settings.fetchModelsEmpty': 'No compatible text models were returned.',
+  'settings.fetchModelsUnsupported': 'Model discovery is not available for this protocol.',
+  'settings.fetchModelsFailed': 'Could not fetch models: {detail}',
   'settings.suggestedModelsHint':
     '這些是此協定的建議模型。你的提供方可能支援不同的模型。',
   'settings.baseUrl': 'Base URL',
@@ -100,6 +107,8 @@ export const zhTW: Dict = {
   'settings.azureDeploymentModel': '部署名稱',
   'settings.azureDeploymentModelHint':
     '對於 Azure OpenAI，此欄位會作為 /openai/deployments/<model> 中的部署名稱使用。請填入你在 Azure 中建立的部署名稱。',
+  'settings.azureModelFetchHint':
+    'For Azure OpenAI, enter the deployment name you created in Azure. Automatic deployment discovery is not available from this BYOK endpoint.',
   'settings.apiVersion': 'API 版本',
   'settings.maxTokens': '最大 tokens（可選）',
   'settings.maxTokensHint':

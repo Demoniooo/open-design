@@ -96,6 +96,13 @@ export const ja: Dict = {
   'settings.show': '表示',
   'settings.hide': '隠す',
   'settings.model': 'モデル',
+  'settings.fetchModels': 'Fetch models',
+  'settings.fetchModelsTitle': 'Fetch available models from this provider',
+  'settings.fetchModelsRunning': 'Fetching models…',
+  'settings.fetchModelsSuccess': 'Fetched {count} models.',
+  'settings.fetchModelsEmpty': 'No compatible text models were returned.',
+  'settings.fetchModelsUnsupported': 'Model discovery is not available for this protocol.',
+  'settings.fetchModelsFailed': 'Could not fetch models: {detail}',
   'settings.suggestedModelsHint':
     'これはこのプロトコル向けの推奨モデルです。プロバイダーによっては別のモデルをサポートしている場合があります。',
   'settings.baseUrl': 'ベース URL',
@@ -103,6 +110,8 @@ export const ja: Dict = {
   'settings.azureDeploymentModel': 'デプロイ名',
   'settings.azureDeploymentModelHint':
     'Azure OpenAI では、このフィールドが /openai/deployments/<model> のデプロイ名として使われます。Azure で作成したデプロイ名を入力してください。',
+  'settings.azureModelFetchHint':
+    'For Azure OpenAI, enter the deployment name you created in Azure. Automatic deployment discovery is not available from this BYOK endpoint.',
   'settings.apiVersion': 'API バージョン',
   'settings.maxTokens': '最大トークン（任意）',
   'settings.maxTokensHint':

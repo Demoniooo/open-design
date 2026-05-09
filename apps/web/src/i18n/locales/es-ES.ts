@@ -96,6 +96,13 @@ export const esES: Dict = {
   'settings.show': 'Mostrar',
   'settings.hide': 'Ocultar',
   'settings.model': 'Modelo',
+  'settings.fetchModels': 'Fetch models',
+  'settings.fetchModelsTitle': 'Fetch available models from this provider',
+  'settings.fetchModelsRunning': 'Fetching models…',
+  'settings.fetchModelsSuccess': 'Fetched {count} models.',
+  'settings.fetchModelsEmpty': 'No compatible text models were returned.',
+  'settings.fetchModelsUnsupported': 'Model discovery is not available for this protocol.',
+  'settings.fetchModelsFailed': 'Could not fetch models: {detail}',
   'settings.suggestedModelsHint':
     'Estos son modelos sugeridos para este protocolo. Tu proveedor puede admitir modelos diferentes.',
   'settings.baseUrl': 'URL base',
@@ -103,6 +110,8 @@ export const esES: Dict = {
   'settings.azureDeploymentModel': 'Nombre del despliegue',
   'settings.azureDeploymentModelHint':
     'Para Azure OpenAI, este campo se usa como nombre del despliegue en /openai/deployments/<model>. Introduce el nombre del despliegue que creaste en Azure.',
+  'settings.azureModelFetchHint':
+    'For Azure OpenAI, enter the deployment name you created in Azure. Automatic deployment discovery is not available from this BYOK endpoint.',
   'settings.apiVersion': 'Versión de API',
   'settings.maxTokens': 'Tokens máx. (opcional)',
   'settings.maxTokensHint':

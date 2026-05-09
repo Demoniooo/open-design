@@ -94,6 +94,13 @@ export const ptBR: Dict = {
   'settings.show': 'Mostrar',
   'settings.hide': 'Ocultar',
   'settings.model': 'Modelo',
+  'settings.fetchModels': 'Fetch models',
+  'settings.fetchModelsTitle': 'Fetch available models from this provider',
+  'settings.fetchModelsRunning': 'Fetching models…',
+  'settings.fetchModelsSuccess': 'Fetched {count} models.',
+  'settings.fetchModelsEmpty': 'No compatible text models were returned.',
+  'settings.fetchModelsUnsupported': 'Model discovery is not available for this protocol.',
+  'settings.fetchModelsFailed': 'Could not fetch models: {detail}',
   'settings.suggestedModelsHint':
     'Estes são modelos sugeridos para este protocolo. Seu provedor pode oferecer suporte a modelos diferentes.',
   'settings.baseUrl': 'URL base',
@@ -101,6 +108,8 @@ export const ptBR: Dict = {
   'settings.azureDeploymentModel': 'Nome do deployment',
   'settings.azureDeploymentModelHint':
     'No Azure OpenAI, este campo e usado como nome do deployment em /openai/deployments/<model>. Informe o nome do deployment criado no Azure.',
+  'settings.azureModelFetchHint':
+    'For Azure OpenAI, enter the deployment name you created in Azure. Automatic deployment discovery is not available from this BYOK endpoint.',
   'settings.apiVersion': 'Versão da API',
   'settings.maxTokens': 'Tokens máx. (opcional)',
   'settings.maxTokensHint':
