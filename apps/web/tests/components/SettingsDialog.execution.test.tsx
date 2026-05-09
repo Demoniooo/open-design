@@ -512,6 +512,13 @@ describe('SettingsDialog execution settings BYOK interactions', () => {
     fireEvent.click(screen.getByRole('tab', { name: 'Azure OpenAI' }));
     expect((screen.getByRole('button', { name: 'Fetch models' }) as HTMLButtonElement).disabled).toBe(true);
     expect(screen.getByText(/Automatic deployment discovery is not available/)).toBeTruthy();
+
+    fireEvent.click(screen.getByRole('tab', { name: 'Ollama Cloud' }));
+    fireEvent.change(screen.getByLabelText('API key'), {
+      target: { value: 'ollama-key' },
+    });
+    expect((screen.getByRole('button', { name: 'Fetch models' }) as HTMLButtonElement).disabled).toBe(true);
+    expect(screen.getByText('Model discovery is not available for this protocol.')).toBeTruthy();
   });
 
   it('fetches provider models, merges them into the picker, and preserves a custom current model', async () => {

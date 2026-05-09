@@ -227,6 +227,12 @@ describe('SettingsDialog provider model fetch helpers', () => {
         'azure',
       ),
     ).toBe(false);
+    expect(
+      canFetchProviderModels(
+        { apiKey: 'ollama-key', baseUrl: 'https://ollama.com' },
+        'ollama',
+      ),
+    ).toBe(false);
   });
 
   it('merges fetched provider models before static suggestions without duplicates', () => {

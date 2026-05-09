@@ -290,6 +290,7 @@ export function canFetchProviderModels(
 ): boolean {
   return (
     protocol !== 'azure' &&
+    protocol !== 'ollama' &&
     Boolean(config.apiKey.trim()) &&
     Boolean(config.baseUrl.trim()) &&
     isValidApiBaseUrl(config.baseUrl)
@@ -2075,6 +2076,9 @@ export function SettingsDialog({
               ) : null}
               {apiProtocol === 'azure' ? (
                 <p className="hint">{t('settings.azureModelFetchHint')}</p>
+              ) : null}
+              {apiProtocol === 'ollama' ? (
+                <p className="hint">{t('settings.fetchModelsUnsupported')}</p>
               ) : null}
               {apiModelCustomActive ? (
                 <label className="field">
