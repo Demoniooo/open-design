@@ -249,6 +249,32 @@ describe('POST /api/provider/models', () => {
     });
   });
 
+  it('lets unsupported contract protocols return a classified provider-models result', async () => {
+    const fetchMock = passThroughOrUpstream(() => jsonResponse({}));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const res = await realFetch(`${baseUrl}/api/provider/models`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        protocol: 'ollama',
+        baseUrl: 'https://ollama.com',
+        apiKey: 'ollama-key',
+      }),
+    });
+    const body = (await res.json()) as Record<string, unknown>;
+    expect(res.status).toBe(200);
+    expect(body).toMatchObject({
+      ok: false,
+      kind: 'unsupported_protocol',
+    });
+    expect(
+      fetchMock.mock.calls.some(
+        ([input]) => !String(input).startsWith(baseUrl),
+      ),
+    ).toBe(false);
+  });
+
   it('maps upstream listing failures to categorized results and redacts keys', async () => {
     for (const [status, kind, response] of [
       [

@@ -6172,13 +6172,13 @@ export async function startServer({
     const protocol = body.protocol;
     if (
       typeof protocol !== 'string' ||
-      !['anthropic', 'openai', 'azure', 'google'].includes(protocol)
+      !['anthropic', 'openai', 'azure', 'google', 'ollama'].includes(protocol)
     ) {
       return sendApiError(
         res,
         400,
         'BAD_REQUEST',
-        'protocol must be one of anthropic|openai|azure|google',
+        'protocol must be one of anthropic|openai|azure|google|ollama',
       );
     }
     if (
